@@ -1,23 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
+import Layout from './componets/layout'
+import Version from './componets/Version';
+import {useState} from 'react'
 
 function App() {
+  const [showsit, setShowsit] = useState(true);
+  let subsit = showsit?<Layout></Layout>:<Version></Version>
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={()=>{setShowsit(!showsit)}}>点击切换题目</button><br/>
+      {subsit}
     </div>
   );
 }
